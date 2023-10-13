@@ -1,0 +1,20 @@
+'use client';
+
+const handleSubmit = () => {};
+
+const Searchbar = () => {
+  return (
+    <form className="flex flex-wrap gap4 mt-12" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        placeholder="Enter Product Link"
+        className="searchbar-input"
+      />
+      <button type="submit" className="searchbar-btn">
+        Search
+      </button>
+    </form>
+  );
+};
+
+export default Searchbar;
