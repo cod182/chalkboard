@@ -85,8 +85,11 @@ export async function scrapeAmazonProduct(url: string) {
       stars: Number(stars),
       isOutOfStock: outOfStock,
       description: description,
+      lowestPrice: Number(currentPrice) || Number(currentPrice),
+      highestPrice: Number(currentPrice) || Number(currentPrice),
+      average: Number(currentPrice) || Number(originalPrice),
     };
-    console.log(data);
+    return data;
   } catch (error: any) {
     throw new Error(`Failed to to scrape product: ${error.message}`);
   }
