@@ -42,7 +42,7 @@ const Searchbar = () => {
 
     try {
       setIsLoading(true);
-      
+      // Scraping
     } catch (error) {
       console.log(error);
     } finally {
