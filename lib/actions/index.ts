@@ -1,7 +1,7 @@
 'use server';
 import { revalidatePath } from 'next/cache';
 
-import Product from '../models/product.model';
+import Product from '../models/Product.model';
 import { connectToDB } from '../mongoose';
 import { scrapeAmazonProduct } from '../scraper/index';
 import { getAveragePrice, getHighestPrice, getLowestPrice } from '../utils';

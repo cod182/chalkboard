@@ -1,7 +1,7 @@
-import Product from '@/lib/models/product.model';
+import Product from '@/lib/models/Product.model';
 import { connectToDB } from '@/lib/mongoose';
 import { scrapeAmazonProduct } from '@/lib/scraper';
-import { EmailContent } from '../../types/index';
+import { EmailContent } from '../../../types/index';
 import {
   getAveragePrice,
   getEmailNotifType,
