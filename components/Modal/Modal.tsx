@@ -5,7 +5,11 @@ import { Dialog, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import { addUserEmailToProduct } from '@/lib/actions';
 
-const Modal = () => {
+declare interface Props {
+  productId: string;
+}
+
+const Modal = ({ productId }: Props) => {
   let [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,7 +17,7 @@ const Modal = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await addUserEmailToProduct();
+    await addUserEmailToProduct(productId, email);
     setIsSubmitting(false);
     setEmail('');
     toggleModal();
@@ -57,7 +61,7 @@ const Modal = () => {
               leaveFrom="opacity-100 scale-100"
             >
               <div className="dialog-content">
-                <div className="flex flex-column">
+                <div className="flex flex-col">
                   <div className="flex justify-between w-full">
                     <div className="p-3 border border-gray-200 rounded-10">
                       <Image
