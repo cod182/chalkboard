@@ -71,6 +71,13 @@ export async function scrapeAmazonProduct(url: string) {
 
     const description = extractDescription($);
 
+    const category = $(
+      'ul.a-unordered-list.a-horizontal.a-size-small li span.a-list-item'
+    )
+      .first()
+      .text()
+      .trim();
+
     const data = {
       url,
       currency: currency || '$',
@@ -80,7 +87,7 @@ export async function scrapeAmazonProduct(url: string) {
       originalPrice: Number(originalPrice) || Number(currentPrice),
       priceHistory: [],
       discountHistory: Number(discountRate),
-      category: 'category',
+      category: category,
       reviewsCount: Number(reviews),
       stars: Number(stars),
       isOutOfStock: outOfStock,
