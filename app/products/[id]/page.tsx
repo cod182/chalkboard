@@ -7,9 +7,10 @@ import { Product } from '@/types';
 import { formatNumber } from '@/lib/utils';
 import PriceInfoCard from '@/components/PriceInfoCard/PriceInfoCard';
 import ProductCard from '@/components/ProductCard/ProductCard';
+import Modal from '@/components/Modal/Modal';
 
 type Props = {
-  params: { id: String };
+  params: { id: string };
 };
 
 const page = async ({ params: { id } }: Props) => {
@@ -175,6 +176,7 @@ const page = async ({ params: { id } }: Props) => {
             </div>
           </div>
           {/* Modal */}
+          <Modal />
         </div>
       </div>
       <div className="flex flex-col gap-16">
@@ -194,7 +196,7 @@ const page = async ({ params: { id } }: Props) => {
             width={22}
             height={22}
           />
-          <Link href="/" className="text-base text-white">
+          <Link href={product.url} className="text-base text-white">
             Buy Now
           </Link>
         </button>

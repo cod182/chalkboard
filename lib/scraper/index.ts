@@ -39,6 +39,9 @@ export async function scrapeAmazonProduct(url: string) {
       // $('.a-size-base.a-color-price'),
       $(
         '#corePriceDisplay_desktop_feature_div span.a-section.a-spacing-small.aok-align-center span span.aok-relative span.a-size-small.a-color-secondary.aok-align-center.basisPrice span.a-price.a-text-price span.a-offscreen'
+      ),
+      $(
+        'div.a-section.a-spacing-small.aok-align-center span span.aok-relative span.a-size-small.a-color-secondary.aok-align-center.basisPrice span.a-offscreen'
       )
     );
 
