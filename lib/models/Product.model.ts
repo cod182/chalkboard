@@ -1,42 +1,19 @@
 import mongoose from 'mongoose';
 
-const productScheema = new mongoose.Schema(
+const productSchema = new mongoose.Schema(
   {
-    url: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    currency: {
-      type: String,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    currentPrice: {
-      type: Number,
-      required: true,
-    },
-    originalPrice: {
-      type: Number,
-      required: true,
-    },
-    priceHistory: {
-      prices: {
-        type: Number,
-        required: true,
+    url: { type: String, required: true, unique: true },
+    currency: { type: String, required: true },
+    image: { type: String, required: true },
+    title: { type: String, required: true },
+    currentPrice: { type: Number, required: true },
+    originalPrice: { type: Number, required: true },
+    priceHistory: [
+      {
+        price: { type: Number, required: true },
+        date: { type: Date, default: Date.now },
       },
-      date: {
-        type: Date,
-        default: Date.now,
-      },
-    },
+    ],
     lowestPrice: { type: Number },
     highestPrice: { type: Number },
     averagePrice: { type: Number },
@@ -50,3 +27,8 @@ const productScheema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+const Product =
+  mongoose.models.Product || mongoose.model('Product', productSchema);
+
+export default Product;
