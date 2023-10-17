@@ -23,7 +23,7 @@ const Navbar = () => {
             Chalk<span className="text-primary">board</span>
           </p>
         </Link>
-        <div className="flex items-center gap-5">
+        {/* <div className="flex items-center gap-5">
           {navIcons.map((icon) => (
             <Image
               key={icon.alt}
@@ -33,7 +33,7 @@ const Navbar = () => {
               height={27}
             />
           ))}
-        </div>
+        </div> */}
       </nav>
     </header>
   );
