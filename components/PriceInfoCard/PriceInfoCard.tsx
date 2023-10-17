@@ -1,7 +1,19 @@
-import React from 'react';
+declare interface InfoCardProps {
+  title: string;
+  iconSrc: String;
+  value: String;
+  borderColor: String;
+}
 
-const PriceInfoCard = () => {
-  return <div>PriceInfoCard</div>;
+const PriceInfoCard = ({
+  title,
+  iconSrc,
+  value,
+  borderColor,
+}: InfoCardProps) => {
+  return <div className={`price-info_card border-l-[${borderColor}]`}>
+    
+  </div>;
 };
 
 export default PriceInfoCard;

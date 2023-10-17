@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/types';
 import { formatNumber } from '@/lib/utils';
+import PriceInfoCard from '@/components/PriceInfoCard/PriceInfoCard';
 
 type Props = {
   params: { id: String };
@@ -130,8 +131,15 @@ const page = async ({ params: { id } }: Props) => {
           {/* Prices */}
           <div className="my-7 flex flex-col gap-5">
             <div className="flex gap-5 flex-wrap">
-              {/* <PriceCard/> */}
-              </div>
+              <PriceInfoCard
+                title="Current Price"
+                iconSrc="/assets/icons/price-tag.svg"
+                value={`${product.currency} ${formatNumber(
+                  product.currentPrice
+                )}`}
+                borderColor="#b6bbff"
+              />
+            </div>
           </div>
         </div>
       </div>
